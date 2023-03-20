@@ -1,0 +1,8 @@
+List of instructions to create dynamic library:
+
+1) gcc -c -fpic libfile.c
+2) gcc --shared -o lib<filename>.so <generated_from_1>.o
+3) cd into folder with main.c 
+4) gcc -I../<libfolder> -L../<libfolder> -o main main.c -l<filename_from_2>
+5) export LD_LIBRARY_PATH=<pwd>/<libfolder>:$LD_LIBRARY_PATH
+6) Run ./main
